@@ -20,7 +20,6 @@ def get_valid_input():
         return 'quit'
 
 def process_delivery(current_total, new_value):
-    new_value -= calculate_tax(new_value)
     current_total += new_value
     print(f"Current inventory count: {current_total}")
     return current_total
@@ -36,3 +35,4 @@ def generate_report(total_units, failed_attempts):
 while get_valid_input() != 'quit':
     pass
 print(generate_report(inventory, failureCount))
+print(f"Calculated tax on final inventory: ${calculate_tax(inventory):.2f}, and the total inventory value is: ${inventory + calculate_tax(inventory):.2f}")
