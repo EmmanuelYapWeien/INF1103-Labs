@@ -1,0 +1,5 @@
+keyboard, 20
+laptop, 12
+mouse, 30
+speakr, 40
+Final inventory count: 102
