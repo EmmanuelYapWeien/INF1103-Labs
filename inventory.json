@@ -22,5 +22,17 @@
         "Name": "Speaker",
         "Price": "$46.31",
         "Stock": 12
+    },
+    {
+        "ID": "P008",
+        "Name": "Laptop",
+        "Price": 3078.5,
+        "Stock": 20
+    },
+    {
+        "ID": "P009",
+        "Name": "USB",
+        "Price": 8.34,
+        "Stock": 50
     }
 ]
