@@ -34,5 +34,17 @@
         "Name": "USB",
         "Price": 8.34,
         "Stock": 50
+    },
+    {
+        "ID": "P010",
+        "Name": "YoYo",
+        "Price": 7.25,
+        "Stock": 12
+    },
+    {
+        "ID": "P011",
+        "Name": "Toy",
+        "Price": 5.0,
+        "Stock": 250
     }
 ]
