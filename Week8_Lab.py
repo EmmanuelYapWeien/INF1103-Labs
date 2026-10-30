@@ -39,55 +39,57 @@ class Inventory:
                 return product
         print("\nProduct not found.\n")
         return None
-        
+
     def display_all(self):
         print("\nCurrent Inventory:\n-------------------------")
         for products in self.products:
             products.display_information()
         print("-------------------------\n")
 
-def initialize():
-    print("===================================\nINVENTORY MANAGEMENT SYSTEM\n===================================\n")
-    try:
-        with open(fileName, "r") as file:
-            print("inventory.json file found.")
-            data = json.load(file)
-            for item in data:
-                product = Product(item["ID"], item["Name"], item["Price"], item["Stock"])
-                inventory.add_product(product, announce=False)
-            print("Inventory loaded successfully.\n")
-    except FileNotFoundError:
-        with open(fileName, "a") as file:
-            print("inventory.json file created.")
-    print("----------MENU----------\n1. Display All Products\n2. Add Product\n3. Update Stock\n4. Search Product\n5. Save Inventory\n6. Exit\n------------------------\n")
+class FileHandling:
+    def initialize(self, inventory):
+        print("===================================\nINVENTORY MANAGEMENT SYSTEM\n===================================\n")
+        try:
+            with open(fileName, "r") as file:
+                print("inventory.json file found.")
+                data = json.load(file)
+                for item in data:
+                    product = Product(item["ID"], item["Name"], item["Price"], item["Stock"])
+                    inventory.add_product(product, announce=False)
+                print("Inventory loaded successfully.\n")
+        except FileNotFoundError:
+            with open(fileName, "a") as file:
+                print("inventory.json file created.")
+        print("----------MENU----------\n1. Display All Products\n2. Add Product\n3. Update Stock\n4. Search Product\n5. Save Inventory\n6. Exit\n------------------------\n")
 
-def save_inventory(inventory):
-    data = []
-    for product in inventory.products:
-        data.append({
-            "ID": product._Product__product_id,
-            "Name": product._Product__name,
-            "Price" : product._Product__price,
-            "Stock" : product._Product__stock
-        })
-    if(userInput == 5):
-        print("\nSaving Inventory...")
-        with open(fileName, "w") as file:
-            json.dump(data, file, indent=4)
-        print("Inventory saved successfully to inventory.json.\n")
-    elif(userInput == 6):
-        print("\nSaving Inventory before exit...")
-        with open(fileName, "w") as file:
-            json.dump(data, file, indent=4)
-        print("Inventory saved successfully.\n\nThank you for using the Inventory Management System.\nProgram terminated.")
+    def save_inventory(self, inventory):
+        data = []
+        for product in inventory.products:
+            data.append({
+                "ID": product._Product__product_id,
+                "Name": product._Product__name,
+                "Price" : product._Product__price,
+                "Stock" : product._Product__stock
+            })
+        if(userInput == 5):
+            print("\nSaving Inventory...")
+            with open(fileName, "w") as file:
+                json.dump(data, file, indent=4)
+            print("Inventory saved successfully to inventory.json.\n")
+        elif(userInput == 6):
+            print("\nSaving Inventory before exit...")
+            with open(fileName, "w") as file:
+                json.dump(data, file, indent=4)
+            print("Inventory saved successfully.\n\nThank you for using the Inventory Management System.\nProgram terminated.")
 
 def get_valid_input():
     option = int(input("Enter Option: "))
     return option
 
 inventory = Inventory() # creating the inventory object from the Inventory class
+fileHandling = FileHandling()
 
-initialize()
+fileHandling.initialize(inventory)
 userInput = get_valid_input()
 
 while(userInput != 6):
@@ -114,9 +116,9 @@ while(userInput != 6):
         if(product != None):
             product.display_information()
     elif(userInput == 5):
-        save_inventory(inventory)
+        fileHandling.save_inventory(inventory)
     userInput = get_valid_input()
-save_inventory(inventory)
+fileHandling.save_inventory(inventory)
 # product1 = Product("P001", "Laptop", 1200.00, 15)
 # product2 = Product("P002", "Mouse", 25.50, 40)
 
