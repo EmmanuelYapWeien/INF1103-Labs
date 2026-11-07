@@ -1,0 +1,18 @@
+[
+    {
+        "Type": "Physical",
+        "ID": "P001",
+        "Name": "Keyboard",
+        "Price": 30.35,
+        "Stock": 13,
+        "Weight": 12
+    },
+    {
+        "Type": "Digital",
+        "ID": "P002",
+        "Name": "File",
+        "Price": 20.0,
+        "Stock": 100,
+        "Size": 67
+    }
+]

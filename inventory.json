@@ -1,18 +1,28 @@
-[
-    {
-        "Type": "Physical",
-        "ID": "P001",
-        "Name": "Keyboard",
-        "Price": 30.35,
-        "Stock": 13,
-        "Weight": 12
-    },
-    {
-        "Type": "Digital",
-        "ID": "P002",
-        "Name": "File",
-        "Price": 20.0,
-        "Stock": 100,
-        "Size": 67
-    }
-]
+{
+    "Inventory_A": [
+        {
+            "Type": "Physical",
+            "ID": "P001",
+            "Name": "Keyboard",
+            "Price": 20.35,
+            "Stock": 35,
+            "Weight": 12,
+            "Supplier_ID": "S001",
+            "Supplier_Name": "Acme",
+            "Supplier_Email": "acme@example.com"
+        }
+    ],
+    "Inventory_B": [
+        {
+            "Type": "Digital",
+            "ID": "P002",
+            "Name": "File",
+            "Price": 100,
+            "Stock": 5,
+            "Size": 38,
+            "Supplier_ID": "S002",
+            "Supplier_Name": "Docs Inc",
+            "Supplier_Email": "docs@example.com"
+        }
+    ]
+}

@@ -8,4 +8,5 @@ COPY fileHandling.py .
 COPY inventory.py .
 COPY product.py .
 COPY inventory.json .
+COPY supplier.py .
 CMD ["python", "Week9_Lab.py"]
