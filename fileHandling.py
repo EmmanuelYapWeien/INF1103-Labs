@@ -7,7 +7,8 @@ fileName = "inventory.json"
 
 class FileHandling:
     def initialize(self, inventory : Inventory, inventory_key : str =None) -> None:
-        print("===================================\nINVENTORY MANAGEMENT SYSTEM\n===================================\n")
+        if(inventory_key == "Inventory_A"):
+            print("===================================\nINVENTORY MANAGEMENT SYSTEM\n===================================\n")
         try:
             with open(fileName, "r") as file:
                 print("inventory.json file found.")
@@ -33,13 +34,14 @@ class FileHandling:
                     elif(item["Type"] == "Digital"):
                         product :PhysicalProduct | DigitalProduct = DigitalProduct(item["Type"], item["ID"], item["Name"], item["Price"], item["Stock"], supplier, item["Size"])
                     inventory.add_product(product, announce=False)
-                print("Inventory loaded successfully.\n")
+                print(f"{inventory_key} loaded successfully.\n")
         except FileNotFoundError:
             with open(fileName, "a") as file:
                 print("inventory.json file created.")
         except json.decoder.JSONDecodeError:
             print("inventory.json empty")
-        print("----------MENU----------\n1. Display All Products\n2. Add Product\n3. Update Stock\n4. Search Product\n5. Remove Product\n6. Testing Aggregation\n7. Testing Composition\n8. Save Inventory\n9. Exit\n------------------------\n")
+        if(inventory_key == "Inventory_B"):
+            print("----------MENU----------\n1. Display All Products\n2. Add Product\n3. Update Stock\n4. Search Product\n5. Remove Product\n6. Testing Aggregation\n7. Testing Composition\n8. Task 6\n9. Save Inventory\n10. Exit\n------------------------\n")
 
     def save_inventory(self, inventory : Inventory):
         self._save_inventory_key(inventory, "Inventory_A")
