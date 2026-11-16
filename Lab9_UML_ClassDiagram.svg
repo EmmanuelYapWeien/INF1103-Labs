@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1480" viewBox="0 0 1800 1480">
+  <defs>
+    <style>
+      .background { fill: #111827; }
+      .class-box { fill: #1f2937; stroke: #60a5fa; stroke-width: 2; }
+      .class-header { fill: #182334; }
+      .divider { stroke: #64748b; stroke-width: 1.5; }
+      .relation { fill: none; stroke: #93c5fd; stroke-width: 2.5; }
+      .realization { fill: none; stroke: #93c5fd; stroke-width: 2.5; stroke-dasharray: 9 7; }
+      .dependency { fill: none; stroke: #93c5fd; stroke-width: 2.5; stroke-dasharray: 9 7; }
+      .class-name { fill: #f8fafc; font: bold 23px "Segoe UI", Arial, sans-serif; text-anchor: middle; }
+      .stereotype { fill: #cbd5e1; font: italic 17px "Segoe UI", Arial, sans-serif; text-anchor: middle; }
+      .member { fill: #e2e8f0; font: 18px "Segoe UI", Arial, sans-serif; }
+      .title { fill: #f8fafc; font: bold 31px "Segoe UI", Arial, sans-serif; text-anchor: middle; }
+      .subtitle { fill: #cbd5e1; font: 18px "Segoe UI", Arial, sans-serif; text-anchor: middle; }
+      .label { fill: #e2e8f0; font: 17px "Segoe UI", Arial, sans-serif; }
+      .multiplicity { fill: #f8fafc; font: 17px "Segoe UI", Arial, sans-serif; }
+      .note { fill: #cbd5e1; font: 16px "Segoe UI", Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="background" width="1800" height="1480"/>
+  <text class="title" x="900" y="46">Lab 9 - Strategy and Factory Class Diagram</text>
+  <text class="subtitle" x="900" y="76">UML relationships based on the current implementation</text>
+
+  <!-- Relationships are drawn behind the class boxes. -->
+  <path class="relation" d="M 415 215 L 690 215"/>
+  <text class="label" x="525" y="200">uses</text>
+  <text class="multiplicity" x="430" y="241">0..*</text>
+  <text class="multiplicity" x="660" y="241">1</text>
+
+  <path class="realization" d="M 270 455 L 270 390 L 785 390 L 785 310"/>
+  <polygon points="785,290 772,310 798,310" fill="#111827" stroke="#93c5fd" stroke-width="2.5"/>
+  <path class="realization" d="M 655 455 L 655 420 L 875 420 L 875 310"/>
+  <polygon points="875,290 862,310 888,310" fill="#111827" stroke="#93c5fd" stroke-width="2.5"/>
+  <path class="realization" d="M 1045 455 L 1045 310"/>
+  <polygon points="1045,290 1032,310 1058,310" fill="#111827" stroke="#93c5fd" stroke-width="2.5"/>
+  <path class="relation" d="M 1045 705 L 1045 640"/>
+  <polygon points="1045,620 1032,640 1058,640" fill="#111827" stroke="#93c5fd" stroke-width="2.5"/>
+
+  <path class="dependency" d="M 510 955 L 710 955"/>
+  <polygon points="730,955 710,945 710,965" fill="#93c5fd"/>
+  <text class="label" x="555" y="940">returns Product</text>
+
+  <path class="dependency" d="M 430 1110 L 430 1340 L 440 1340"/>
+  <polygon points="460,1340 440,1330 440,1350" fill="#93c5fd"/>
+  <text class="label" x="445" y="1190">creates</text>
+  <path class="dependency" d="M 490 1110 L 490 1210 L 1300 1210 L 1300 1350 L 1280 1350"/>
+  <polygon points="1260,1350 1280,1340 1280,1360" fill="#93c5fd"/>
+  <text class="label" x="865" y="1200">creates</text>
+
+  <path class="relation" d="M 640 1260 L 640 1220 L 845 1220 L 845 1200"/>
+  <polygon points="845,1180 832,1200 858,1200" fill="#111827" stroke="#93c5fd" stroke-width="2.5"/>
+  <path class="relation" d="M 1080 1260 L 1080 1220 L 1030 1220 L 1030 1200"/>
+  <polygon points="1030,1180 1017,1200 1043,1200" fill="#111827" stroke="#93c5fd" stroke-width="2.5"/>
+
+  <path class="relation" d="M 1160 1010 L 1390 1010"/>
+  <text class="label" x="1245" y="995">supplied by</text>
+  <text class="multiplicity" x="1172" y="1037">0..*</text>
+  <text class="multiplicity" x="1365" y="1037">1</text>
+
+  <!-- Strategy pattern -->
+  <g>
+    <rect class="class-box" x="60" y="105" width="355" height="250" rx="8"/>
+    <rect class="class-header" x="61" y="106" width="353" height="54"/>
+    <text class="class-name" x="237.5" y="140">Order</text>
+    <line class="divider" x1="60" y1="160" x2="415" y2="160"/>
+    <text class="member" x="82" y="190">+ order_id: str</text>
+    <text class="member" x="82" y="218">+ order_lines: list[OrderLine]</text>
+    <text class="member" x="82" y="246">+ discount: DiscountStrategy</text>
+    <line class="divider" x1="60" y1="263" x2="415" y2="263"/>
+    <text class="member" x="82" y="292">+ set_discount(strategy): void</text>
+    <text class="member" x="82" y="320">+ calculate_total(): float</text>
+    <text class="member" x="82" y="344">+ display_order(): void</text>
+  </g>
+
+  <g>
+    <rect class="class-box" x="690" y="100" width="440" height="190" rx="8"/>
+    <rect class="class-header" x="691" y="101" width="438" height="62"/>
+    <text class="stereotype" x="910" y="124">«interface»</text>
+    <text class="class-name" x="910" y="153">DiscountStrategy</text>
+    <line class="divider" x1="690" y1="163" x2="1130" y2="163"/>
+    <text class="member" x="715" y="198">+ apply(total: float): float</text>
+    <line class="divider" x1="690" y1="215" x2="1130" y2="215"/>
+    <text class="note" x="715" y="246">Strategy used by Order; it is not owned exclusively.</text>
+  </g>
+
+  <g>
+    <rect class="class-box" x="120" y="455" width="300" height="155" rx="8"/>
+    <rect class="class-header" x="121" y="456" width="298" height="62"/>
+    <text class="stereotype" x="270" y="480">«concrete strategy»</text>
+    <text class="class-name" x="270" y="508">NoDiscount</text>
+    <line class="divider" x1="120" y1="518" x2="420" y2="518"/>
+    <text class="member" x="142" y="552">+ apply(total): float</text>
+    <line class="divider" x1="120" y1="568" x2="420" y2="568"/>
+    <text class="note" x="142" y="592">Returns total unchanged</text>
+  </g>
+
+  <g>
+    <rect class="class-box" x="500" y="455" width="310" height="175" rx="8"/>
+    <rect class="class-header" x="501" y="456" width="308" height="62"/>
+    <text class="stereotype" x="655" y="480">«concrete strategy»</text>
+    <text class="class-name" x="655" y="508">BulkDiscount</text>
+    <line class="divider" x1="500" y1="518" x2="810" y2="518"/>
+    <text class="member" x="522" y="550">- threshold: float</text>
+    <text class="member" x="522" y="578">- amount: float</text>
+    <line class="divider" x1="500" y1="590" x2="810" y2="590"/>
+    <text class="member" x="522" y="616">+ apply(total): float</text>
+  </g>
+
+  <g>
+    <rect class="class-box" x="880" y="455" width="330" height="165" rx="8"/>
+    <rect class="class-header" x="881" y="456" width="328" height="62"/>
+    <text class="stereotype" x="1045" y="480">«concrete strategy»</text>
+    <text class="class-name" x="1045" y="508">PercentageDiscount</text>
+    <line class="divider" x1="880" y1="518" x2="1210" y2="518"/>
+    <text class="member" x="902" y="550">- percent: float</text>
+    <line class="divider" x1="880" y1="566" x2="1210" y2="566"/>
+    <text class="member" x="902" y="594">+ apply(total): float</text>
+  </g>
+
+  <g>
+    <rect class="class-box" x="880" y="705" width="330" height="130" rx="8"/>
+    <rect class="class-header" x="881" y="706" width="328" height="62"/>
+    <text class="stereotype" x="1045" y="730">«specialized strategy»</text>
+    <text class="class-name" x="1045" y="758">StudentDiscount</text>
+    <line class="divider" x1="880" y1="768" x2="1210" y2="768"/>
+    <text class="member" x="902" y="798">+ __init__(percent=5.0)</text>
+    <text class="note" x="902" y="822">Inherits apply() from PercentageDiscount</text>
+  </g>
+
+  <!-- Factory and product hierarchy -->
+  <g>
+    <rect class="class-box" x="70" y="890" width="440" height="220" rx="8"/>
+    <rect class="class-header" x="71" y="891" width="438" height="72"/>
+    <text class="stereotype" x="290" y="916">«factory»</text>
+    <text class="class-name" x="290" y="948">ProductFactory</text>
+    <line class="divider" x1="70" y1="963" x2="510" y2="963"/>
+    <text class="member" x="92" y="997" style="font-size:16px">+ create(product_type, product_id, name, price,</text>
+    <text class="member" x="114" y="1025" style="font-size:16px">stock_quantity, supplier, extra_info=0): Product</text>
+    <line class="divider" x1="70" y1="1042" x2="510" y2="1042"/>
+    <text class="note" x="92" y="1075">{static}; creates PhysicalProduct or</text>
+    <text class="note" x="92" y="1098">DigitalProduct; rejects unknown types</text>
+  </g>
+
+  <g>
+    <rect class="class-box" x="730" y="850" width="430" height="330" rx="8"/>
+    <rect class="class-header" x="731" y="851" width="428" height="72"/>
+    <text class="stereotype" x="945" y="876">«abstract»</text>
+    <text class="class-name" x="945" y="908">Product</text>
+    <line class="divider" x1="730" y1="923" x2="1160" y2="923"/>
+    <text class="member" x="752" y="951">- _type: str</text>
+    <text class="member" x="752" y="978">- _product_id: str</text>
+    <text class="member" x="752" y="1005">- _name: str</text>
+    <text class="member" x="752" y="1032">- _price: float</text>
+    <text class="member" x="752" y="1059">- _stock: int</text>
+    <text class="member" x="752" y="1086">- _supplier: Supplier</text>
+    <line class="divider" x1="730" y1="1103" x2="1160" y2="1103"/>
+    <text class="member" x="752" y="1133">+ update_stock(quantity): void</text>
+    <text class="member" x="752" y="1161">+ get_fulfillment_info(): void</text>
+  </g>
+
+  <g>
+    <rect class="class-box" x="460" y="1260" width="360" height="185" rx="8"/>
+    <rect class="class-header" x="461" y="1261" width="358" height="58"/>
+    <text class="class-name" x="640" y="1297">PhysicalProduct</text>
+    <line class="divider" x1="460" y1="1319" x2="820" y2="1319"/>
+    <text class="member" x="482" y="1350">- _weight: int</text>
+    <line class="divider" x1="460" y1="1366" x2="820" y2="1366"/>
+    <text class="member" x="482" y="1396">+ get_fulfillment_info(): void</text>
+    <text class="member" x="482" y="1424">+ calculate_shipping_cost(): void</text>
+  </g>
+
+  <g>
+    <rect class="class-box" x="900" y="1260" width="360" height="185" rx="8"/>
+    <rect class="class-header" x="901" y="1261" width="358" height="58"/>
+    <text class="class-name" x="1080" y="1297">DigitalProduct</text>
+    <line class="divider" x1="900" y1="1319" x2="1260" y2="1319"/>
+    <text class="member" x="922" y="1350">- _download_size: int</text>
+    <line class="divider" x1="900" y1="1366" x2="1260" y2="1366"/>
+    <text class="member" x="922" y="1396">+ get_fulfillment_info(): void</text>
+  </g>
+
+  <g>
+    <rect class="class-box" x="1390" y="930" width="340" height="170" rx="8"/>
+    <rect class="class-header" x="1391" y="931" width="338" height="58"/>
+    <text class="class-name" x="1560" y="967">Supplier</text>
+    <line class="divider" x1="1390" y1="989" x2="1730" y2="989"/>
+    <text class="member" x="1412" y="1020">- _supplier_id: str</text>
+    <text class="member" x="1412" y="1048">- _name: str</text>
+    <text class="member" x="1412" y="1076">- _contact_info: str</text>
+  </g>
+
+  <text class="note" x="70" y="1460">Multiplicity: one Order has exactly one DiscountStrategy; one strategy may be shared by zero or many Orders.</text>
+</svg>

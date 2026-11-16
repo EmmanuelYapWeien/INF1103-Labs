@@ -1,0 +1,61 @@
+{
+    "Inventory_A": [
+        {
+            "Type": "Physical",
+            "ID": "P001",
+            "Name": "Keyboard",
+            "Price": 20.35,
+            "Stock": 35,
+            "Weight": 12,
+            "Supplier_ID": "S001",
+            "Supplier_Name": "Acme",
+            "Supplier_Email": "acme@example.com"
+        },
+        {
+            "Type": "Physical",
+            "ID": "P001",
+            "Name": "Desk Lamp",
+            "Price": 25.0,
+            "Stock": 10,
+            "Weight": 0,
+            "Supplier_ID": "S999",
+            "Supplier_Name": "George Washington",
+            "Supplier_Email": "Washington@founder.com"
+        },
+        {
+            "Type": "Digital",
+            "ID": "D001",
+            "Name": "Photo Editor",
+            "Price": 49.9,
+            "Stock": 100,
+            "Size": 0,
+            "Supplier_ID": "S999",
+            "Supplier_Name": "George Washington",
+            "Supplier_Email": "Washington@founder.com"
+        },
+        {
+            "Type": "Physical",
+            "ID": "P003",
+            "Name": "Monitor Stand",
+            "Price": 39.5,
+            "Stock": 7,
+            "Weight": 0,
+            "Supplier_ID": "S999",
+            "Supplier_Name": "George Washington",
+            "Supplier_Email": "Washington@founder.com"
+        }
+    ],
+    "Inventory_B": [
+        {
+            "Type": "Digital",
+            "ID": "P002",
+            "Name": "File",
+            "Price": 100.0,
+            "Stock": 5,
+            "Size": 38,
+            "Supplier_ID": "S002",
+            "Supplier_Name": "Docs Inc",
+            "Supplier_Email": "docs@example.com"
+        }
+    ]
+}
